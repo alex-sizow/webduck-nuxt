@@ -1,0 +1,20 @@
+{
+  "name": "WebDuck",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter frontend dev\" \"pnpm --filter backend develop\"",
+    "frontend": "pnpm --filter frontend dev",
+    "backend": "pnpm --filter backend develop",
+    "install:all": "pnpm install",
+    "clean": "pnpm -r exec rm -rf node_modules && rm -rf node_modules",
+    "build": "pnpm -r build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "9.1.2"
+  }
+}
