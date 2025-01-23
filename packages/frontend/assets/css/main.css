@@ -1,0 +1,41 @@
+@import url('variables.css');
+@import url('reset.css');
+
+/* assets/css/main.css */
+
+body {
+  scrollbar-gutter: stable;
+}
+
+/* WebKit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: none; /* No background for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color for the thumb */
+  border-radius: 5px; /* Optional: Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color for the thumb when hovered */
+}
+
+::-webkit-scrollbar-button {
+  display: none; /* Hide the scrollbar buttons (arrows) */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-arrow-color: red;
+  scrollbar-color: yellow transparent; /* Color for the thumb and transparent background for the track */
+}
+
+body {
+  background-image: url(@/assets/background.svg);
+}
