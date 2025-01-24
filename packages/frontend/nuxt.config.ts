@@ -18,4 +18,17 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
+  runtimeConfig: {
+    strapi: {
+      url: process.env.STRAPI_URL,
+      prefix: '/api',
+      
+    },
+    public: {
+      strapi: {
+        url: process.env.STRAPI_URL,
+        
+      }
+    }
+  }
 })
