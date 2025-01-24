@@ -60,6 +60,9 @@ importers:
 
   packages/frontend:
     dependencies:
+      marked:
+        specifier: 15.0.6
+        version: 15.0.6
       nuxt:
         specifier: ^3.15.2
         version: 3.15.2(@parcel/watcher@2.5.0)(@types/node@20.17.14)(better-sqlite3@11.3.0)(db0@0.2.1(better-sqlite3@11.3.0))(ioredis@5.4.2)(magicast@0.3.5)(rollup@4.31.0)(terser@5.37.0)(typescript@5.7.3)(vite@6.0.11(@types/node@20.17.14)(jiti@2.4.2)(terser@5.37.0)(yaml@2.7.0))(yaml@2.7.0)
@@ -5476,6 +5479,11 @@ packages:
 
   markdown-it@12.3.2:
     resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
+    hasBin: true
+
+  marked@15.0.6:
+    resolution: {integrity: sha512-Y07CUOE+HQXbVDCGl3LXggqJDbXDP2pArc2C1N1RRMN0ONiShoSsIInMd5Gsxupe7fKLpgimTV+HOJ9r7bA+pg==}
+    engines: {node: '>= 18'}
     hasBin: true
 
   marked@4.3.0:
@@ -15028,6 +15036,8 @@ snapshots:
       linkify-it: 3.0.3
       mdurl: 1.0.1
       uc.micro: 1.0.6
+
+  marked@15.0.6: {}
 
   marked@4.3.0: {}
 

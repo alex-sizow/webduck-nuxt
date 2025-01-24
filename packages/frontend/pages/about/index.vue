@@ -1,16 +1,19 @@
 <script lang="ts" setup>
+interface AboutData {
+  title: string;
+  Main: string;
+}
+
 const { findOne } = useStrapi();
 
-// typed to Course
-const response = await findOne('about');
-const data = response.data;
-console.log(data);
+const response = await findOne<AboutData>('about');
+const aboutData = response.data;
 </script>
 
 <template>
   <div>
-    <h1>{{ data.title }}</h1>
-    <main>{{ data.Main }}</main>
+    <h1>{{ aboutData.title }}</h1>
+    <main>{{ aboutData.Main }}</main>
     <p></p>
   </div>
 </template>
