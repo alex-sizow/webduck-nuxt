@@ -37,5 +37,5 @@ body {
 }
 
 body {
-  background-image: url(@/assets/background.svg);
+  background-image: url(./background.svg);
 }

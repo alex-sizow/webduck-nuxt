@@ -1,7 +1,10 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUpdated, nextTick } from 'vue';
 import { marked } from 'marked';
-import markedCodeFormat from 'marked-code-format';
+import { markedHighlight } from 'marked-highlight';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
+import 'prismjs/components/prism-javascript'; // Импортируйте компонент для JavaScript
 
 interface AboutData {
   title: string;
@@ -10,11 +13,9 @@ interface AboutData {
 
 const { findOne } = useStrapi();
 
-// Инициализация реактивных переменных
 const aboutData = ref<AboutData | null>(null);
 const markedDataMain = ref<string | Promise<string>>('');
 
-// Асинхронная функция для получения данных
 async function fetchAboutData() {
   const response = await findOne<AboutData>('about');
   aboutData.value = response.data;
@@ -22,16 +23,32 @@ async function fetchAboutData() {
   markedDataMain.value = marked(aboutData.value.Main);
 }
 
-// Вызов функции для получения данных
-fetchAboutData();
+const highlightCode = async () => {
+  await nextTick();
+  Prism.highlightAll();
+};
+
+onMounted(() => {
+  fetchAboutData();
+  highlightCode();
+});
+
+onUpdated(() => {
+  highlightCode();
+});
 </script>
 
 <template>
   <h1 v-if="aboutData">{{ aboutData.title }}</h1>
-  <div class="about" v-html="markedDataMain"></div>
+  <div
+    v-if="markedDataMain"
+    v-html="markedDataMain"
+    ref="codeBlock"
+  ></div>
+  <div v-else>Loading...</div>
 </template>
 
-<style scoped>
+<style>
 .about {
   h1 {
     color: red;
