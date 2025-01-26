@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     viewTransition: true
   },
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+
   },
 
   runtimeConfig: {

@@ -1,5 +1,14 @@
 <template>
-  <NuxtLayout></NuxtLayout>
+  <Suspense>
+    <template #default>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </template>
+    <template #fallback>
+      <div>Loading...</div>
+    </template>
+  </Suspense>
 </template>
 
 <style>

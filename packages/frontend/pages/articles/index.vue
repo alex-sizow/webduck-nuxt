@@ -1,23 +1,31 @@
 <script setup>
-import { useAsyncData } from '#app';
 const { find } = useStrapi();
+const articles = ref([]);
 
-const response = await find('articles');
-const articles = response.data;
-console.log(articles);
+onMounted(async () => {
+  try {
+    const response = await find('articles');
+    if (response && response.data) {
+      articles.value = response.data;
+      console.log('Articles loaded:', articles.value);
+    } else {
+      console.error('No data received from API');
+    }
+  } catch (error) {
+    console.error('Ошибка при загрузке статей:', error);
+  }
+});
 </script>
 
 <template>
-  <div>
-    <h1>Articles</h1>
-    <ul>
-      <li v-for="article in articles" :key="article.id">
-        <NuxtLink :to="`/articles/${article.id}`">{{
-          article.About
-        }}</NuxtLink>
-      </li>
-    </ul>
-  </div>
+  <h1>Articles</h1>
+  <ul>
+    <li v-for="article in articles" :key="article.id">
+      <NuxtLink :to="`/articles/${article.id}`">{{
+        article.About
+      }}</NuxtLink>
+    </li>
+  </ul>
 </template>
 
 <style scoped></style>
