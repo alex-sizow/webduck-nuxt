@@ -1,10 +1,9 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUpdated, nextTick } from 'vue';
 import { marked } from 'marked';
-import { markedHighlight } from 'marked-highlight';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
-import 'prismjs/components/prism-javascript'; // Импортируйте компонент для JavaScript
+import 'prismjs/components/prism-javascript'; 
 
 interface AboutData {
   title: string;

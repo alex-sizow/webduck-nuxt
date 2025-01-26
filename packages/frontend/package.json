@@ -21,6 +21,7 @@
   "devDependencies": {
     "@nuxt/fonts": "^0.10.3",
     "@nuxtjs/strapi": "2.0.0",
+    "@types/prismjs": "^1.26.5",
     "@vueuse/nuxt": "^12.3.0",
     "nuxt": "^3.15.1",
     "prettier": "^3.4.2"

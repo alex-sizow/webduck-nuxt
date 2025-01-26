@@ -1,14 +1,10 @@
 <script setup>
 import { useAsyncData } from '#app';
+const { find } = useStrapi();
 
-const { data: articles } = await useAsyncData(
-  'articles',
-  async () => {
-    // Replace this with your actual API endpoint
-    const response = await $fetch('/api/articles');
-    return response.data;
-  }
-);
+const response = await find('articles');
+const articles = response.data;
+console.log(articles);
 </script>
 
 <template>
@@ -17,7 +13,7 @@ const { data: articles } = await useAsyncData(
     <ul>
       <li v-for="article in articles" :key="article.id">
         <NuxtLink :to="`/articles/${article.id}`">{{
-          article.title
+          article.About
         }}</NuxtLink>
       </li>
     </ul>
