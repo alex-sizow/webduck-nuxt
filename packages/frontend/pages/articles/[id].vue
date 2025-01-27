@@ -8,7 +8,7 @@ useSeoMeta({
 
 const { find } = useStrapi();
 const date = ref<any | null>(null);
-const text = ref<any | null>(null);
+const text = ref<any | null>('');
 
 onMounted(async () => {
   try {
