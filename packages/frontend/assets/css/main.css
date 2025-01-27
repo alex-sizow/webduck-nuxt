@@ -37,5 +37,15 @@ body {
 }
 
 body {
-  background-image: url(@/assets/background.svg);
+  fill: red;
+  background: var(--bg-image);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+    background: url(../backgroundDark.svg);
+  }
 }

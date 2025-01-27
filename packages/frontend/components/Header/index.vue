@@ -3,6 +3,7 @@
     <NuxtLink to="/"
       ><img src="@/assets/duck-logo.svg" alt=""
     /></NuxtLink>
+    <ToggleThemeButton />
     <nav>
       <NuxtLink to="/">Main</NuxtLink>
       <NuxtLink to="/about">About</NuxtLink>
@@ -10,8 +11,6 @@
     </nav>
   </header>
 </template>
-
-<script></script>
 
 <style scoped>
 header {
