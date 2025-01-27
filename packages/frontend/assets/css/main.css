@@ -36,16 +36,12 @@ body {
   scrollbar-color: yellow transparent; /* Color for the thumb and transparent background for the track */
 }
 
+[data-theme='dark'] {
+  --bg-image: url(../backgroundDark.svg);
+  --text-color: #ffffff;
+}
 body {
-  fill: red;
   background: var(--bg-image);
   background-color: var(--bg-color);
   color: var(--text-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    color: white;
-    background: url(../backgroundDark.svg);
-  }
 }
