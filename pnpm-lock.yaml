@@ -27,35 +27,35 @@ importers:
         specifier: 11.3.0
         version: 11.3.0
       fs-extra:
-        specifier: ^10.1.0
+        specifier: ^10.0.0
         version: 10.1.0
       mime-types:
-        specifier: ^2.1.35
+        specifier: ^2.1.27
         version: 2.1.35
       react:
-        specifier: ^18.3.1
+        specifier: ^18.0.0
         version: 18.3.1
       react-dom:
-        specifier: ^18.3.1
+        specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
       react-router-dom:
-        specifier: ^6.28.2
+        specifier: ^6.0.0
         version: 6.28.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       styled-components:
-        specifier: ^6.1.14
+        specifier: ^6.0.0
         version: 6.1.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@types/node':
-        specifier: ^20.17.16
+        specifier: ^20
         version: 20.17.16
       '@types/react':
-        specifier: ^18.3.18
+        specifier: ^18
         version: 18.3.18
       '@types/react-dom':
-        specifier: ^18.3.5
+        specifier: ^18
         version: 18.3.5(@types/react@18.3.18)
       typescript:
-        specifier: ^5.7.3
+        specifier: ^5
         version: 5.7.3
 
   packages/frontend:
@@ -11800,7 +11800,7 @@ snapshots:
 
   '@types/http-proxy@1.17.15':
     dependencies:
-      '@types/node': 22.12.0
+      '@types/node': 20.17.16
 
   '@types/inquirer@6.5.0':
     dependencies:
@@ -11862,6 +11862,7 @@ snapshots:
   '@types/node@22.12.0':
     dependencies:
       undici-types: 6.20.0
+    optional: true
 
   '@types/nodemon@1.19.6':
     dependencies:
@@ -17663,7 +17664,8 @@ snapshots:
 
   undici-types@6.19.8: {}
 
-  undici-types@6.20.0: {}
+  undici-types@6.20.0:
+    optional: true
 
   undici@6.19.2: {}
 
