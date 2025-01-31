@@ -7,7 +7,7 @@ import 'prismjs/components/prism-javascript';
 
 interface AboutData {
   title: string;
-  Main: string;
+  main: string;
 }
 
 const { findOne } = useStrapi();
@@ -19,7 +19,7 @@ async function fetchAboutData() {
   const response = await findOne<AboutData>('about');
   aboutData.value = response.data;
 
-  markedDataMain.value = marked(aboutData.value.Main);
+  markedDataMain.value = marked(aboutData.value.main);
 }
 
 const highlightCode = async () => {
