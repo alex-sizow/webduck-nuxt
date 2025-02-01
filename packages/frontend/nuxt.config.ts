@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@vueuse/nuxt', '@nuxt/fonts', '@nuxtjs/strapi'],
+  modules: ['@vueuse/nuxt', '@nuxt/fonts', '@nuxtjs/strapi', '@nuxtjs/i18n', '@pinia/nuxt'],
   fonts: {
     families: [
       { name: 'Roboto', src: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap' }

@@ -8,6 +8,7 @@
         <NuxtLink to="/">Main</NuxtLink>
         <NuxtLink to="/about">About</NuxtLink>
         <NuxtLink to="/articles">Articles</NuxtLink>
+        <NuxtLink to="/pomodoro">🍅</NuxtLink>
       </nav>
     </div>
 
