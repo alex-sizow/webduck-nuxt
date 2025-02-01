@@ -16,8 +16,8 @@ onMounted(async () => {
     const articleId = route.params.id;
     const response: any = await find(`articles/${articleId}`);
     if (response) {
-      date.value = response?.data.Date;
-      text.value = response?.data.Main;
+      date.value = response?.data.date;
+      text.value = response?.data.body;
     } else {
       console.error('No data received from API');
     }

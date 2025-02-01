@@ -22,7 +22,7 @@ onMounted(async () => {
   <ul>
     <li v-for="article in articles" :key="article.id">
       <NuxtLink :to="`/articles/${article.documentId}`">{{
-        article.About
+        article.title
       }}</NuxtLink>
     </li>
   </ul>
