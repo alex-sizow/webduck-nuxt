@@ -1,10 +1,51 @@
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 
 const minutes = ref(25);
 const seconds = ref(0);
 const isRunning = ref(false);
 let interval: number | null = null;
+
+const saveToLocalStorage = () => {
+  localStorage.setItem(
+    'pomodoroTimer',
+    JSON.stringify({
+      minutes: minutes.value,
+      seconds: seconds.value,
+      isRunning: isRunning.value,
+      timestamp: isRunning.value ? Date.now() : null,
+    })
+  );
+};
+
+const loadFromLocalStorage = () => {
+  const savedState = localStorage.getItem('pomodoroTimer');
+  if (savedState) {
+    const state = JSON.parse(savedState);
+    if (state.isRunning && state.timestamp) {
+      const elapsedTime = Math.floor(
+        (Date.now() - state.timestamp) / 1000
+      );
+      let totalSeconds =
+        state.minutes * 60 + state.seconds - elapsedTime;
+
+      if (totalSeconds < 0) {
+        totalSeconds = 0;
+      }
+
+      minutes.value = Math.floor(totalSeconds / 60);
+      seconds.value = totalSeconds % 60;
+    } else {
+      minutes.value = state.minutes;
+      seconds.value = state.seconds;
+    }
+    isRunning.value = state.isRunning;
+
+    if (isRunning.value) {
+      startTimer();
+    }
+  }
+};
 
 const startTimer = () => {
   isRunning.value = true;
@@ -19,6 +60,7 @@ const startTimer = () => {
     } else {
       seconds.value -= 1;
     }
+    saveToLocalStorage();
   }, 1000);
 };
 
@@ -27,6 +69,7 @@ const pauseTimer = () => {
   if (interval) {
     clearInterval(interval);
   }
+  saveToLocalStorage();
 };
 
 const resetTimer = () => {
@@ -36,10 +79,11 @@ const resetTimer = () => {
   if (interval) {
     clearInterval(interval);
   }
+  saveToLocalStorage();
 };
 
 onMounted(() => {
-  // Any setup code if needed
+  loadFromLocalStorage();
 });
 
 onUnmounted(() => {
@@ -47,13 +91,20 @@ onUnmounted(() => {
     clearInterval(interval);
   }
 });
+
+watch([minutes, seconds, isRunning], () => {
+  saveToLocalStorage();
+});
 </script>
 
 <template>
   <div class="pomodoro-app">
     <h1>Pomodoro Timer</h1>
     <div class="timer">
-      <span>{{ minutes }}:{{ seconds }}</span>
+      <span
+        >{{ minutes }}:{{ seconds < 10 ? '0' : ''
+        }}{{ seconds }}</span
+      >
     </div>
     <div class="controls">
       <button @click="startTimer" :disabled="isRunning">
