@@ -15,8 +15,10 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: true
   },
-  app: {
-
+  i18n: {
+    vueI18n: './i18n.config.ts',
+    strategy: 'no_prefix',
+    lazy: true
   },
 
   runtimeConfig: {

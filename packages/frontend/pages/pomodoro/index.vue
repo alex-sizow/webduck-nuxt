@@ -119,11 +119,11 @@ watch([minutes, seconds, isRunning], () => {
 </template>
 
 <style scoped>
-body {
-  background-color: red;
-}
-
 .pomodoro-app {
+  background-color: red;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 30px;
   text-align: center;
   margin-top: 50px;
 }

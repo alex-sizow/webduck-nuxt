@@ -13,12 +13,15 @@
     </div>
 
     <div class="header-right">
+      <LanguageSwitcherButton />
       <ToggleThemeButton />
 
       <template v-if="user">
         <div class="user-menu">
           <button @click="isOpen = !isOpen" class="user-button">
-            <span class="username">{{ user.username }}</span>
+            <span class="username"
+              >{{ $t('welcome') }} {{ user.username }}</span
+            >
             <span class="arrow">▼</span>
           </button>
 
