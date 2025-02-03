@@ -3,7 +3,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <h1>Hello! <br />My name is Alex Sizov.</h1>
+  <h1>{{ $t('welcome') }} <br />My name is Alex Sizov.</h1>
   <div class="intro">
     <img src="@/assets/i.webp" alt="" />
     <p class="intro__who">
